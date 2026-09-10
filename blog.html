@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blogs — VivaLaVida</title>
+<meta name="description" content="Blogs from VivaLaVida on technology, education, human development, and impact.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <filter id="duotone" color-interpolation-filters="sRGB">
+    <feColorMatrix type="matrix" values="0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0 0 0 1 0"/>
+    <feComponentTransfer>
+      <feFuncR type="table" tableValues="0.086 0.945"/>
+      <feFuncG type="table" tableValues="0.145 0.925"/>
+      <feFuncB type="table" tableValues="0.113 0.875"/>
+    </feComponentTransfer>
+  </filter>
+</svg>
+<div class="cursor-dot" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo">Viva<span>La</span>Vida</a>
+    <nav class="nav">
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#ecosystem">Our Ecosystem</a></li>
+        <li><a href="blog.html" aria-current="page">Blogs</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+      <a href="contact.html" class="btn btn--solid">Get in touch
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow reveal">Blogs</p>
+      <h1 class="reveal">Ideas, impact, and people.</h1>
+      <p class="reveal">VLV Blogs on technology, education, human development, and the work of building a connected ecosystem.</p>
+    </div>
+  </section>
+
+  <section class="section--tight">
+    <div class="container">
+
+      <a href="#" class="blog-featured reveal">
+        <div class="frame"><img src="https://picsum.photos/seed/vlv-update-feature/1000/750" alt="VLV technology and community placeholder image"></div>
+        <div>
+          <span class="post-cat">VLV update</span>
+          <h2>Blogs from the VivaLaVida ecosystem</h2>
+          <p>TODO: Add the first approved VLV update or article topic.</p>
+          <p class="post-meta">VivaLaVida · Coming soon</p>
+        </div>
+      </a>
+
+      <div class="filter-bar reveal" role="group" aria-label="Filter posts by category">
+        <button aria-pressed="true" data-filter="all">All Blogs</button>
+        <button aria-pressed="false" data-filter="technology">Technology</button>
+        <button aria-pressed="false" data-filter="learning">Learning</button>
+        <button aria-pressed="false" data-filter="community">Community</button>
+      </div>
+
+      <div class="blog-grid">
+        <a href="#" class="post-card reveal" data-category="technology">
+          <div class="frame"><img src="https://picsum.photos/seed/vlv-update-1/700/540" alt="VLV technology initiative placeholder image"></div>
+          <span class="post-cat">Technology</span>
+          <h3>VLV technology Blogs coming soon</h3>
+          <p>TODO: Add an approved article about Ambidexters Inc.</p>
+        </a>
+        <a href="#" class="post-card reveal" data-category="learning">
+          <div class="frame"><img src="https://picsum.photos/seed/vlv-update-2/700/540" alt="VLV learning initiative placeholder image"></div>
+          <span class="post-cat">Learning</span>
+          <h3>Learning and development Blogs coming soon</h3>
+          <p>TODO: Add an approved article about SkillHubs Global.</p>
+        </a>
+        <a href="#" class="post-card reveal" data-category="community">
+          <div class="frame"><img src="https://picsum.photos/seed/vlv-update-3/700/540" alt="VLV community initiative placeholder image"></div>
+          <span class="post-cat">Community</span>
+          <h3>Community Blogs coming soon</h3>
+          <p>TODO: Add an approved article about Impact City.</p>
+        </a>
+        <a href="#" class="post-card reveal" data-category="technology">
+          <div class="frame"><img src="https://picsum.photos/seed/vlv-update-4/700/540" alt="VLV innovation placeholder image"></div>
+          <span class="post-cat">Technology</span>
+          <h3>Building ideas that create impact</h3>
+          <p>TODO: Add an approved VLV update.</p>
+        </a>
+        <a href="#" class="post-card reveal" data-category="learning">
+          <div class="frame"><img src="https://picsum.photos/seed/vlv-update-5/700/540" alt="VLV professional growth placeholder image"></div>
+          <span class="post-cat">Learning</span>
+          <h3>Professional growth through shared knowledge</h3>
+          <p>TODO: Add an approved VLV update.</p>
+        </a>
+        <a href="#" class="post-card reveal" data-category="community">
+          <div class="frame"><img src="https://picsum.photos/seed/vlv-update-6/700/540" alt="VLV people and organizations placeholder image"></div>
+          <span class="post-cat">Community</span>
+          <h3>People and organizations evolving together</h3>
+          <p>TODO: Add an approved VLV update.</p>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section section--ink">
+    <div class="container">
+      <div class="cta-band reveal">
+        <h2>Have an idea for the VLV ecosystem?</h2>
+        <a href="contact.html" class="btn btn--ghost-light">Get in touch
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 17 17 7M9 7h8v8"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">Viva<span>La</span>Vida</a>
+        <p>VivaLaVida (VLV) is a dynamic ecosystem that connects technology, education, and personal growth helping individuals, professionals, and organizations evolve.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="about.html">About</a>
+        <a href="index.html#ecosystem">Our Ecosystem</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <a href="https://www.instagram.com/myvlv">Instagram</a>
+        <a href="https://www.linkedin.com/company/myvlv/">LinkedIn</a>
+        <a href="https://x.com/vlvgroup">X</a>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <a href="contact.html">Get in touch</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 VivaLaVida. All rights reserved.</span>
+      <span>Building Ideas, Impact and People</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
