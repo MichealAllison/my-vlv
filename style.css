@@ -187,8 +187,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   border-bottom: 0;
 }
 .site-header--overlay .logo,
-.site-header--overlay .nav-links a{ color: var(--paper); }
-.site-header--overlay .nav-links a::after{ background: var(--paper); }
+.site-header--overlay .nav-links a{ color: var(--ink); }
+.site-header--overlay .nav-links a::after{ background: var(--ink); }
 .site-header--overlay .nav-toggle span{ background: var(--paper); }
 .site-header--overlay.is-scrolled{
   background: rgba(255,255,255,0.9);
