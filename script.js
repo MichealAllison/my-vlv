@@ -1,6 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* ---------- Page intro ---------- */
+  const loader = document.querySelector('.page-loader');
+  if (loader){
+    document.body.classList.add('is-loading');
+    const count = loader.querySelector('.page-loader__count');
+    const startedAt = performance.now();
+    let progressTimer;
+    if (count && !reduceMotion){
+      progressTimer = window.setInterval(() => {
+        const progress = Math.min(99, Math.round(((performance.now() - startedAt) / 1550) * 100));
+        count.textContent = String(progress).padStart(2, '0');
+      }, 40);
+    }
+    const exitLoader = () => {
+      const wait = reduceMotion ? 0 : Math.max(0, 1750 - (performance.now() - startedAt));
+      window.setTimeout(() => {
+        if (progressTimer) window.clearInterval(progressTimer);
+        if (count) count.textContent = '100';
+        loader.classList.add('is-exiting');
+        document.body.classList.remove('is-loading');
+        window.setTimeout(() => loader.remove(), reduceMotion ? 0 : 850);
+      }, wait);
+    };
+    if (document.readyState === 'complete') exitLoader();
+    else window.addEventListener('load', exitLoader, { once: true });
+  }
+
   /* ---------- Mobile nav ---------- */
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');
