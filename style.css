@@ -66,6 +66,19 @@ body.is-loading{ overflow:hidden; }
   transition:opacity .8s var(--ease), visibility .8s;
 }
 .page-loader.is-exiting{ opacity:0; visibility:hidden; pointer-events:none; }
+.page-loader::before,
+.page-loader::after{
+  content:"";
+  position:absolute;
+  width:22vw;
+  aspect-ratio:1;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:50%;
+  pointer-events:none;
+  animation:loader-orbit 2.8s ease-in-out infinite;
+}
+.page-loader::before{ top:-12vw; right:-5vw; }
+.page-loader::after{ bottom:-16vw; left:-8vw; animation-delay:-1.4s; }
 .page-loader__inner{ width:min(420px, calc(100% - 3rem)); }
 .page-loader__eyebrow{
   margin:0 0 2.5rem;
@@ -115,10 +128,41 @@ body.is-loading{ overflow:hidden; }
 @keyframes loader-mark-in{ to{ clip-path:inset(0); } }
 @keyframes loader-status-in{ to{ opacity:1; } }
 @keyframes loader-progress{ to{ transform:scaleX(1); } }
+@keyframes loader-orbit{
+  0%, 100%{ transform:scale(.8) rotate(0deg); opacity:.25; }
+  50%{ transform:scale(1.15) rotate(180deg); opacity:.7; }
+}
+
+/* The transition is a two-tone curtain between documents. */
+.page-transition{
+  position:fixed;
+  inset:0;
+  z-index:400;
+  display:flex;
+  pointer-events:none;
+  transform:scaleY(1);
+  transform-origin:top;
+}
+.page-transition span{ flex:1; background:var(--rust); transform:scaleY(1); }
+.page-transition span:nth-child(2){ background:var(--ink); }
+.page-transition span:nth-child(3){ background:var(--ember); }
+.page-transition.is-ready{ animation:curtain-in .85s var(--ease) forwards; }
+.page-transition.is-leaving{ transform:scaleY(0); transform-origin:bottom; animation:curtain-out .7s var(--ease) forwards; }
+@keyframes curtain-in{ to{ transform:scaleY(0); } }
+@keyframes curtain-out{ from{ transform:scaleY(0); } to{ transform:scaleY(1); } }
+
+body.is-entering main,
+body.is-entering .site-header{ animation:page-content-in .9s var(--ease) .15s both; }
+@keyframes page-content-in{
+  from{ opacity:0; transform:translateY(18px); }
+  to{ opacity:1; transform:none; }
+}
 @media (prefers-reduced-motion: reduce){
   .page-loader__mark{ animation:none; clip-path:none; }
   .page-loader__status{ animation:none; opacity:1; }
   .page-loader__line span{ animation:none; transform:scaleX(1); }
+  .page-loader::before, .page-loader::after, .page-transition, body.is-entering main, body.is-entering .site-header{ animation:none; }
+  .page-transition{ display:none; }
 }
 
 h1,h2,h3,h4{

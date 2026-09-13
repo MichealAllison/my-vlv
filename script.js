@@ -1,6 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* ---------- Document transition ---------- */
+  const transition = document.createElement('div');
+  transition.className = 'page-transition';
+  transition.setAttribute('aria-hidden', 'true');
+  transition.innerHTML = '<span></span><span></span><span></span>';
+  document.body.appendChild(transition);
+  if (!reduceMotion){
+    document.body.classList.add('is-entering');
+    requestAnimationFrame(() => transition.classList.add('is-ready'));
+  }
+
+  document.querySelectorAll('a[href]').forEach(link => {
+    const href = link.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || link.target === '_blank') return;
+    link.addEventListener('click', (event) => {
+      const destination = new URL(href, window.location.href);
+      if (destination.origin !== window.location.origin || destination.pathname === window.location.pathname && destination.hash) return;
+      if (reduceMotion) return;
+      event.preventDefault();
+      transition.classList.remove('is-ready');
+      transition.classList.add('is-leaving');
+      window.setTimeout(() => { window.location.href = destination.href; }, 620);
+    });
+  });
+
   /* ---------- Page intro ---------- */
   const loader = document.querySelector('.page-loader');
   if (loader){
